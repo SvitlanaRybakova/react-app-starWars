@@ -7,7 +7,12 @@ class Species extends Component {
     super();
     this.state = {
       species: starwarsData.species,
+      favoritSpecies:[],
     }
+  }
+  handleClickInChild = (species) =>{
+    console.log('You clicked this card in child: ', species);
+
   }
 
   render() {
@@ -15,7 +20,8 @@ class Species extends Component {
     return (
       <div className="species">
         {this.state.species.map((oneSpecies, i) => (
-          <OneSpecies oneSpecies={oneSpecies} key={i} />
+          <OneSpecies oneSpecies={oneSpecies} key={i} 
+          handleClick={this.handleClickInChild}/>
         ))}
       </div>
     )
